@@ -7,13 +7,13 @@ const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
     state = {
-        product:[]
+        products:[]
     };
   
     componentDidMount(){
         axios.get('/yellpasscontrollerannonce/infoannonce')
         .then(res=>{
-            console.log(res.data)
+          
             this.setState(
                 {
                     products:res.data
@@ -26,8 +26,7 @@ class ProductProvider extends Component {
     render() {
         return (
             <ProductContext.Provider value={{
-                ...this.state,
-               
+                ...this.state
             }}>
               {this.props.children}  
             </ProductContext.Provider>

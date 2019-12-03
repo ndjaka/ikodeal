@@ -5,32 +5,15 @@ import Tile from './Title'
 
 import Slide from './Slideshow'
 import axios from 'axios';
+import { ProductConsumer } from '../context';
 
 class ProductList extends Component {
 
 
-    state ={
-        products:null
-    }
-
-    componentDidMount(){
-        axios.get('/yellpasscontrollerannonce/infoannonce')
-        .then(res=>{
-           console.log(res.data)
-            this.setState(
-                {
-                    products:res.data
-                }
-            )
-        })
-        .catch(err =>console.log(err) );
-    }
 
     render() {
-        let recentProductMarkup = this.state.products ?
-        ( this.state.products.map(
-           (product) =><Product key={product.produit.idproduit} product={product}/>)
-        ) : <p>chargement....</p>
+        
+
         return (
 
 
@@ -40,7 +23,15 @@ class ProductList extends Component {
                     <div className="container">
                         <Tile title="Best deals" />
                         <div className="row">
-                              {recentProductMarkup}
+                           <ProductConsumer>
+                               {(value)=>{
+                                   return value.products.map( product =>{
+                                       return <Product product={product}/>
+                                   })
+                               }}
+
+
+                           </ProductConsumer>
                         </div>
                     </div>
                 </div>
