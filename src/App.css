@@ -1,0 +1,29 @@
+:root{
+  --mainRed:#99352F;
+  --mainDark:#232528;
+  --mainWhite:#F3F3F3;
+  --mainOrange:#F06522;
+  --mainGreen:#006E00;
+  --mainGreenLigth:rgb(162, 238, 162);
+}
+
+body{
+
+  font-family: 'Open Sans', sans-serif !important;
+  background: var(--mainWhite) !important;
+  color:var(--mainDark) !important;
+}
+
+.text-title{
+   font-family: 'Anton', sans-serif;
+   letter-spacing : 0.3rem;
+   text-transform : uppercase;
+   color: var(--mainRed);
+}
+
+.text-red{
+  font-size: 14px;
+  color:var(--mainGreen) !important;
+  
+}
+
