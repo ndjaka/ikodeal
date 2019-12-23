@@ -38,7 +38,7 @@ export default class home extends Component {
                        
                     </div>
               </ShareWapper>
-                
+              <Title title="Best deals" />
             </div>
         )
     }

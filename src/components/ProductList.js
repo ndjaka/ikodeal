@@ -16,7 +16,6 @@ class ProductList extends Component {
 
         return (
 
-
             <React.Fragment>
                
                 <div className = "py-3">
@@ -25,8 +24,9 @@ class ProductList extends Component {
                         <div className="row">
                            <ProductConsumer>
                                {(value)=>{
+                                   
                                    return value.products.map( product =>{
-                                       return <Product product={product}/>
+                                       return <Product key={product.annonce.idannonce} product={product}/>
                                    })
                                }}
 

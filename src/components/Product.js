@@ -3,19 +3,24 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 import PropTypes from 'prop-types'
+import { ProductConsumer } from '../context';
 
 export default class Product extends Component {
 
 
     render() {
-        const {admin,annonce,categorie,lieu,partenaire,produit,quabtiteactu,quantiteinit,revenu,sscategorie} = this.props.product;
+        const {annonce,lieu,partenaire,produit} = this.props.product;
       
         return (
            
             <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
                <div className="card">
-                   
-                       <div className="img-container p-5" 
+                  <ProductConsumer>
+                      {(value)=>(
+                      <div className="img-container p-5" 
+                       onClick={()=>
+                       value.manipulerDetails(annonce.idannonce)
+                    }
                         >
                         <Link to="/details">
                             <img
@@ -24,7 +29,11 @@ export default class Product extends Component {
                             className="card-img-top  " width="157" height="109.03"/>
                         </Link>
                     </div>
-
+                    )}
+                  
+                    
+                  </ProductConsumer>
+                       
           <div className="card-footer d-flex justify-content-between">
               
                  <p className="text-red  align-self-center mb-0">
@@ -41,7 +50,7 @@ export default class Product extends Component {
                         <s className="ml-1">ksh {annonce.prixpromo}</s>
                         
                     </div>
-                    <span className="font-weight-bold text-uppercase">{lieu.ville}</span>  <em className="ml-1 ">ksh {lieu.quartier}</em>
+                    <span className="font-weight-bold text-uppercase">{lieu.ville}</span>  <em className="ml-1 "> {lieu.quartier}</em>
                  </p>
                     </div>
                </div>
@@ -49,6 +58,7 @@ export default class Product extends Component {
         )
     }
 }
+
 
 
 const ProductWrapper = styled.div`
