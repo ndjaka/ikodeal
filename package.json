@@ -2,7 +2,7 @@
   "name": "ikodeal",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://winmoneycamer.com:41761/ikodeal/webresources",
+  "proxy": "http://winmoneycamer.com:41761/ikodeal/webresources/yellpasscontrollerannonce",
   "dependencies": {
     "add": "^2.0.6",
     "axios": "^0.19.0",

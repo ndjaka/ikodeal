@@ -23,17 +23,17 @@ export default function Slideshow() {
         <Slide {...properties}>
         <div className="each-slide">
             <div>
-                <img src="img/black-redim1.jpg"  width='1110'  />
+                <img src="img/1.jpg"  width='1110'  />
             </div>
         </div>
         <div className="each-slide">
             <div>
-                <img src="img/imgSlide2.jpg" width='1110' />
+                <img src="img/2.jpg" width='1110' />
             </div>
         </div>
         <div className="each-slide">
              <div>
-                  <img src="img/classic-clothes.jpg" width='1110' />
+                  <img src="img/3.jpg" width='1110' />
               </div>
         </div>
       </Slide>

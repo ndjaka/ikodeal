@@ -25,7 +25,7 @@ export default class home extends Component {
                            </div>
                            <div className="col10 reduc col-md-8">
                                <div className="thumbnail">
-                               <img className="img1" src="img/imageannonce.jpg" width="720" height="350"/>
+                               <img className="img1" src="img/turned.jpg" width="720" height="350"/>
                                <div class="caption">
                                 <h1 className="text-capitalize ">enjoy this product with a 50% discount</h1>
                                

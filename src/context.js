@@ -9,19 +9,13 @@ class ProductProvider extends Component {
     state = {
         products:[],
         detailProduct:null,
-        viewport: { 
-            width: "100vw", 
-            height: "100vh", 
-            latitude: 3.847773, 
-            longitude:   11.503928, 
-            zoom: 10
-          }, 
-         userLocation: {} 
+        userLocation: {}
+        
 
     };
   
     componentDidMount(){
-        axios.get('/yellpasscontrollerannonce/infoannonce')
+        axios.get('/infoannonce')
         .then(res=>{
           console.log(res.data)
             this.setState(
@@ -56,27 +50,62 @@ class ProductProvider extends Component {
                long: position.coords.longitude 
             }; 
     
-           let newViewport = { 
-              hauteur: "100vh", 
-              largeur: "100vw", 
-              latitude: position.coords.latitude , 
-              longitude: position.coords.longitude, 
-              zoom: 10 
-            }; 
-                console.log(newViewport)
+            console.log(setUserLocation)
             this.setState ({ 
-              viewport: newViewport, 
               userLocation: setUserLocation 
            }); 
         }); 
       };
+
+
+
+      getProductBycategory=name=>{
+
+       var request = '/infoannoncecategorie?categorie=Ice cream parlor'
+        axios.get(request)
+        .then(res=>{
+          console.log(
+            {
+             name:'getcategoryByProduct',
+              data:res.data
+            })
+            this.setState(
+                {
+                    products:res.data
+                }
+            )
+        })
+        .catch(err =>console.log(err) );
+       
+        
+      }
+
+      getProductBySubcategory=(namecat,nameSubcat)=>{
+        
+        var request = '/infoannoncesscat?categorie=BAR%20RESTAURANT&sscat=Bar Snack Cabaret'
+        axios.get(request)
+        .then(res=>{
+            console.log( {
+                name:'getProductBySubcategory',
+                 data:res.data
+               })
+
+               this.setState({
+                   products:res.data
+               })
+        }).catch(err => console.log(err))
+      }
+
+      
 
     render() {
         return (
             <ProductContext.Provider value={{
                 ...this.state,
                 manipulerDetails:this.manipulerDetails,
-                Location:this.setUserLocation
+                Location:this.setUserLocation,
+                getProductBycategory:this. getProductBycategory,
+                getProductBySubcategory:this.getProductBySubcategory
             }}>
               {this.props.children}  
             </ProductContext.Provider>
