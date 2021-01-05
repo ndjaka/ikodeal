@@ -5,7 +5,7 @@
   "proxy": "http://winmoneycamer.com:41761/ikodeal/webresources/yellpasscontrollerannonce",
   "dependencies": {
     "add": "^2.0.6",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
     "jquery": "^3.4.1",
